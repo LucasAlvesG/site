@@ -1,20 +1,30 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle, Phone, Facebook, Instagram } from 'lucide-react';
-import dynamic from 'next/dynamic';
-import 'swiper/css';
-import image1 from './carousel1.jpg';
-import image2 from './carousel2.jpg';
-import image3 from './carousel3.jpg';
-import image4 from './carousel4.jpg';
+import { useKeenSlider } from 'keen-slider/react';
+import 'keen-slider/keen-slider.min.css';
 
-const images = [image1, image2, image3, image4];
-
-// Carrega o Swiper dinamicamente, apenas no lado do cliente
-const Swiper = dynamic(() => import('swiper/react').then(mod => mod.Swiper), { ssr: false });
-const SwiperSlide = dynamic(() => import('swiper/react').then(mod => mod.SwiperSlide), { ssr: false });
+// Defina as imagens do carrossel
+const images = [
+  '/carousel1.jpg',
+  '/carousel2.jpg',
+  '/carousel3.jpg',
+  '/carousel4.jpg'
+];
 
 export default function Home() {
+  // Configuração do Keen Slider
+  const [sliderRef] = useKeenSlider({
+    loop: true,
+    slides: { perView: 1 },
+    autoplay: {
+      delay: 4000,
+      pauseOnHover: true,
+    },
+  });
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -62,29 +72,21 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Carousel using Swiper */}
-              <div className="md:w-1/2">
-                <Swiper
-                  spaceBetween={50}
-                  slidesPerView={1}
-                  loop={true}
-                  autoplay={{ delay: 4000 }}
-                  className="w-full h-64 md:h-full"
-                >
-                  {images.map((image, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={image}
-                          alt={`Carousel image ${index + 1}`}
-                          fill
-                          style={{ objectFit: 'cover' }}
-                          quality={100}
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+              {/* Carousel using Keen Slider */}
+              <div ref={sliderRef} className="keen-slider md:w-1/2 h-64 md:h-full">
+                {images.map((src, index) => (
+                  <div key={index} className="keen-slider__slide relative w-full h-full">
+                    <Image
+                      src={src}
+                      alt={`Carousel image ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={100}
+                      style={{ objectFit: 'cover' }}
+                      className="rounded-lg"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

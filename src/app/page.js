@@ -11,8 +11,8 @@ import image4 from './carousel4.jpg';
 const images = [image1, image2, image3, image4];
 
 // Carrega o Swiper dinamicamente, apenas no lado do cliente
-const Swiper = dynamic(() => import('swiper/react').then(mod => mod.Swiper), { ssr: true });
-const SwiperSlide = dynamic(() => import('swiper/react').then(mod => mod.SwiperSlide), { ssr: true });
+const Swiper = dynamic(() => import('swiper/react').then(mod => mod.Swiper), { ssr: false });
+const SwiperSlide = dynamic(() => import('swiper/react').then(mod => mod.SwiperSlide), { ssr: false });
 
 export default function Home() {
   return (

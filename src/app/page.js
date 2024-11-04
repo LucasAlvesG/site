@@ -3,27 +3,39 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { MessageCircle, Phone, Facebook, Instagram } from 'lucide-react';
-import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-// Defina as imagens do carrossel
+// Defina as imagens do carrossel com o caminho relativo a partir da raiz
 const images = [
-  '/carousel1.jpg',
-  '/carousel2.jpg',
-  '/carousel3.jpg',
-  '/carousel4.jpg'
+  '/carousel1.jpeg',
+  '/carousel2.jpeg',
+  '/carousel3.jpeg',
+  '/carousel4.jpeg',
+  '/carousel5.jpeg',
+  '/carousel6.jpeg',
+  '/carousel7.jpeg',
+  '/carousel8.jpeg',
+  '/carousel9.jpeg'
 ];
 
 export default function Home() {
-  // Configuração do Keen Slider
-  const [sliderRef] = useKeenSlider({
-    loop: true,
-    slides: { perView: 1 },
-    autoplay: {
-      delay: 4000,
-      pauseOnHover: true,
-    },
-  });
+  // Configuração do Slick Slider
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 100,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+    cssEase: "linear",
+    fade: true,
+    waitForAnimate: false,
+    adaptiveHeight: true,
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -39,54 +51,70 @@ export default function Home() {
         {/* Hero Section */}
         <section className="bg-gray-100 py-12">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center">
+            <div className="flex flex-col md:flex-row items-center md:space-x-16">
               {/* Text Content */}
               <div className="md:w-1/2 mb-8 md:mb-0">
-                <h1 className="text-4xl font-bold mb-4 text-red-600">O Melhor para sua saúde</h1>
-                <p className="mb-6 text-gray-600">
-                  Com mais de 28 anos de mercado, a Clínica CMD possui um centro médico
-                  completo para atender e cuidar de você e sua família. Contamos com mais
-                  de 1000 m², centro radiológico completo com ressonância magnética,
-                  tomografia, raio-X e outros exames, além de um laboratório de análises
-                  clínicas e mais de 20 especialidades médicas em consultório. Somos a
-                  maior referência em ultrassonografia obstétrica, atendendo mais de
-                  2000 gestantes todos os meses e cuidando do seu bebê desde as primeiras
-                  semanas de gestação até o momento do parto. Somos pioneiros em
-                  ultrassonografia morfológica em Goiânia, com profissionais atuando na CMD
-                  há 20 anos. Somos o local que você procurava para cuidar da sua saúde
-                  sempre que precisar!
-                </p>
+              <h1 className="text-7xl font-bold " style={{ color: '#2d87bb' }}>O Melhor</h1>
+              <h1 className="text-7xl font-bold mb-4" style={{ color: '#2d87bb' }}>para sua saúde</h1>
+              <h1 className="text-2xl font-bold mb-4" style={{ color: '#2d87bb' }}>Clínica Médica Diagnóstico</h1>
+              <p
+  className="mb-10 text-gray-700 text-lg leading-relaxed tracking-wide"
+  style={{
+    textAlign: "justify",
+    fontFamily: 'Poppins, sans-serif',
+    fontWeight: 400, // define o peso base como regular (não negrito)
+  }}
+>
+  Com mais de <span style={{ fontWeight: 700 }}>28 anos de mercado</span>, a Clínica CMD possui um
+  centro médico completo para atender e cuidar de você e sua família. Contamos com
+  mais de <span style={{ fontWeight: 700 }}>1000 m²</span>, centro radiológico completo com
+  ressonância magnética, tomografia, raio-X e outros exames, além de um laboratório
+  de análises clínicas e mais de <span style={{ fontWeight: 700 }}>20 especialidades médicas</span> em
+  consultório. Somos a maior referência em <span style={{ fontWeight: 700 }}>ultrassonografia obstétrica</span>,
+  atendendo mais de <span style={{ fontWeight: 700 }}>2000 gestantes</span> todos os meses e cuidando do seu bebê
+  desde as primeiras semanas de gestação até o momento do parto. Somos pioneiros em
+  <span style={{ fontWeight: 700 }}> ultrassonografia morfológica</span> em Goiânia, com profissionais atuando na CMD
+  há 20 anos. Somos o local que você procurava para cuidar da sua saúde sempre que
+  precisar!
+</p>
+
+
+
                 <Link
-                  href="#agendar"
-                  className="bg-red-600 text-white px-6 py-3 rounded-full inline-flex items-center"
-                >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  AGENDE AGORA!
-                </Link>
+                href="#agendar"
+                className="text-white inline-flex items-center justify-center hover:shadow-lg"
+                style={{
+                  backgroundColor: '#2d87bb',
+                  padding: '1rem 2rem', // aumenta o padding para garantir o tamanho desejado
+                  fontSize: '1.25rem',  // aumenta o tamanho do texto
+                  borderRadius: '0.5rem', // opcional: arredonda as bordas do botão
+                  minWidth: '200px',      // opcional: define uma largura mínima
+                  minHeight: '60px',      // opcional: define uma altura mínima
+                  fontFamily: 'Roboto, sans-serif'
+                }}
+              >
+                MARQUE UM EXAME
+              </Link>
+
               </div>
 
-              {/* Carousel using Keen Slider */}
-              <div ref={sliderRef} className="keen-slider md:w-1/2 h-64 md:h-full">
-                {images.map((src, index) => (
-                  <div key={index} className="keen-slider__slide relative w-full h-full">
-                    <Image
-                      src={src}
-                      alt={`Carousel image ${index + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      quality={100}
-                      style={{ objectFit: 'cover' }}
-                      className="rounded-lg"
-                    />
-                  </div>
-                ))}
+              {/* Carousel using Slick Slider */}
+              <div className="md:w-1/2 md:space-x-16">
+                <Slider {...settings}>
+                  {images.map((src, index) => (
+                    <div key={index} className="relative w-full h-64 md:w-[1000px] md:h-[600px] clip-container">
+                      <Image
+                        src={src}
+                        alt={`Carousel image ${index + 1}`}
+                        width={1000} 
+                        height={600} 
+                        quality={100}
+                        style={{ objectFit: 'cover' }}
+                        className="w-full h-full object-cover custom-shape"
+                      />
+                    </div>
+                  ))}
+                </Slider>
               </div>
             </div>
           </div>

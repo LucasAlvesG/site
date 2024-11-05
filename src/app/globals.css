@@ -33,7 +33,18 @@ body {
 
 /* Se for em globals.css ou qualquer outro arquivo CSS global */
 .clip-container {
-  clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
-  overflow: hidden;
+  clip-path: inset(0 round 20px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

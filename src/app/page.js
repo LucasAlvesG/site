@@ -197,7 +197,7 @@ export default function Home() {
               className="mb-2 inline-flex items-center text-lg"
             >
               <MessageCircle className="w-5 h-5 mr-2 text-gray-300 hover:text-white transition-all" />
-              (62) 9 9269-3610
+              (62) 3241-7374
             </Link>
             <div className="flex space-x-4">
               <Link href="https://www.facebook.com/CMD" aria-label="Facebook">

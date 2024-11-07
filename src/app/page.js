@@ -39,7 +39,6 @@ function PrevArrow(props) {
 
 const images = [
   '/carousel1.jpeg',
-  '/carousel2.jpeg',
   '/carousel3.jpeg',
   '/carousel4.jpeg',
   '/carousel5.jpeg',
@@ -90,7 +89,7 @@ export default function Home() {
 
   const settings2 = {
     accessibility: true,
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -131,22 +130,46 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-gradient-to-b from-white to-gray-100 text-gray-900">
       {/* Header fixo */}
-      <header className="bg-white p-4 shadow-lg fixed w-full z-10">
-        <div className="container mx-auto flex items-center justify-between">
-          <Image src="/logo.png" height={40} width={140} alt="CMD" className="transition-transform hover:scale-110" />
-          <Link
-            href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Vim pelo site e gostaria de agendar um exame ou consulta."
-            className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-2 rounded-full font-medium text-sm md:text-base hover:bg-yellow-700 transition"
-          >
-            WhatsApp
-          </Link>
-        </div>
-      </header>
+      <header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-10">
+  <div className="container mx-auto flex items-center justify-between">
+    {/* Logo Button */}
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="transition-transform hover:scale-110"
+    >
+      <Image
+        src="/logo.png"
+        height={40}
+        width={80}
+        alt="CMD"
+      />
+    </button>
+    
+    {/* Clinic Name with margin-left: auto to move it to the right */}
+    <h1 className="text-4xl md:text-3xl font-playfair font-bold bg-gradient-to-r from-[#82d3f9] to-blue-800 bg-clip-text text-transparent mr-auto">
+      Clínica Médica Diagnóstico
+    </h1>
+    
+    {/* WhatsApp Link */}
+    <Link
+      href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Vim pelo site e gostaria de agendar um exame ou consulta."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-10 py-2 rounded-full font-medium text-sm md:text-base hover:bg-yellow-700 transition ml-4"
+    >
+      WhatsApp
+      <FaWhatsapp className="ml-2 text-xl" />
+    </Link>
+  </div>
+</header>
+
+
+
 
       {/* Main Content */}
       <main className="flex-grow pt-20">
         {/* Hero Section */}
-        <section className="p-8 md:p-12 bg-gradient-to-br from-white to-gray-100 flex flex-col md:flex-row items-center">
+        <section className="p-8 md:p-12 bg-gradient-to-br from-white to-gray-300 flex flex-col md:flex-row items-center">
           <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-8">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-2 text-blue-900">O Melhor</h1>
@@ -154,7 +177,7 @@ export default function Home() {
               <h2 className="text-lg md:text-2xl font-semibold text-gray-700 mb-4">Clínica Médica Diagnóstico</h2>
               <p className="mb-10 text-base md:text-lg leading-relaxed tracking-wide text-justify">
                 Com mais de <span className="font-semibold text-yellow-600">28 anos de mercado</span>, a Clínica CMD possui um
-                centro médico completo para atender e cuidar de você e sua família...
+                centro médico completo para atender e cuidar de você e sua família.
               </p>
               <Link
                 href="#servicos"
@@ -201,7 +224,7 @@ export default function Home() {
         </section>
 
         {/* Depoimentos */}
-        <section className="bg-gray-50 py-16">
+                <section className="bg-gray-50 py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-playfair font-bold mb-12 text-blue-800">Depoimentos de Clientes</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -211,8 +234,12 @@ export default function Home() {
                 { name: "Joice", feedback: "Preço justo e ótimo atendimento. Minha clínica preferida em Goiânia." },
               ].map((testimonial, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <Star className="text-yellow-500 w-8 h-8 mb-3 mx-auto" />
-                  <p className="italic">"{testimonial.feedback}"</p>
+                  <div className="flex justify-center mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="text-yellow-500 fill-current w-8 h-8" />
+                    ))}
+                  </div>
+                  <p className="italic">&quot;{testimonial.feedback}&quot;</p>
                   <p className="mt-4 font-semibold">{testimonial.name}</p>
                 </div>
               ))}
@@ -221,7 +248,7 @@ export default function Home() {
         </section>
 
         {/* slider de servicos realizado pela cmd contendo setas para direita e esquerda */}
-        <section id="servicos" className="py-16 bg-blue-900 text-gray-900">
+       <section id="servicos" className="py-16 bg-blue-900 text-gray-900">
   <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center mb-12 text-gray-100">
     Exames Realizados
   </h2>
@@ -243,21 +270,25 @@ export default function Home() {
               {/* Seção de Texto */}
               <div>
                 <p className="text-xl font-semibold text-blue-800">{d.name}</p>
-                <p className="text-gray-700">{d.review}</p>
+                
+                {/* Text with limited lines for mobile */}
+                <p className="text-gray-700 overflow-hidden text-ellipsis max-h-16 sm:max-h-full line-clamp-2 sm:line-clamp-none">
+                  {d.review}
+                </p>
               </div>
               
               {/* Seção dos Botões */}
               <div className="flex flex-col items-center gap-4 mt-4">
                  {/* Link para WhatsApp com número específico */}
                  <a href={`https://wa.me/${d.whatsapp}?text=Olá! Gostaria de mais informações sobre ${d.name}`} target="_blank" rel="noopener noreferrer" className="w-3/5">
-                  <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-red-400 to-red-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                  <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-green-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                     Mensagem
                     <FaWhatsapp className="ml-2 text-xl" />
                   </button>
                 </a>
                 {/* Botão de Ligação com link para o número de telefone */}
                 <a href="tel:+556232417374" className="w-3/5">
-                  <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-green-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                  <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-blue-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                     Ligação
                     <FaPhoneAlt className="ml-2 text-xl" />
                   </button>
@@ -271,72 +302,86 @@ export default function Home() {
   </div>
 </section>
 
-  
-  
+<section className="py-16 bg-[#fff6f1] relative overflow-hidden">
+  <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-8 px-4">
+    {/* Left Text Content */}
+    <div className="md:w-1/2 mb-8 md:mb-0">
+  <h2 className="text-3xl md:text-6xl font-light text-gray-800 leading-tight">
+    Somos a <span className="font-semibold">maior referência</span> em <span className="font-semibold">ultrassom obstétrico</span>, atendendo mais de <span className="text-blue-800 font-semibold">2000 gestantes</span> todos os meses.
+  </h2>
 
-        {/* Seção de Serviços */}
-        <section id="marcar" className="py-16 bg-gray-100 text-gray-900">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center mb-12 text-blue-800">
-      Exames Realizados
-    </h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="flex bg-gray rounded-lg overflow-hidden relative">
-        <div className="w-1/2 h-full">
-          <Image
-            src="/carousel2.jpeg"
-            height={300}
-            width={400}
-            alt="Ginecologia"
-            className="w-full h-full object-cover rounded-l-lg"
-          />
-        </div>
-        <div
-          className="absolute left-1/3 top-1/2 w-1/2 h-3/4 p-6 bg-gray-100 flex flex-col justify-center transform -translate-y-1/2 transition-transform duration-300 hover:translate-x-4 rounded-r-lg shadow-md"
-        >
-          <h3 className="font-bold text-lg md:text-xl mb-4 text-blue-800">Radiologia</h3>
-          <ul className="list-disc ml-5 space-y-2">
-            {['Tomografia', 'Raio X', 'Mamografia', 'Densitometria Óssea', 'Ultrassom'].map((item, index) => (
-              <li key={index}>
-                <Link
-                  href={`https://api.whatsapp.com/send?phone=556292693610&text=Olá! Quero agendar ${item}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
+  <p className="text-gray-700 mt-4 text-xl md:text-2xl leading-relaxed">
+    Contamos com mais de 1000 m², um centro radiológico completo com ressonância magnética, tomografia, raio X e muito mais. Além disso, temos um laboratório para análises clínicas e mais de 20 especialidades médicas em consultório.
+  </p>
+
+  <p className="text-gray-700 mt-4 text-xl md:text-2xl leading-relaxed">
+    Cuidamos do seu bebê desde as primeiras semanas de gestação até o momento do parto, oferecendo acompanhamento completo e especializado.
+  </p>
+      
+      
+      
+      <a
+  href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Gostaria de agendar um exame."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-16 py-3 rounded-full font-medium text-base md:text-lg hover:bg-yellow-700 transition mt-6"
+>
+  MARQUE VIA WHATSAPP
+  <FaWhatsapp className="ml-2 text-2xl" />
+</a>
+
+
+    </div>
+
+    {/* Right Image Content */}
+    <div className="md:w-1/2 relative flex justify-center">
+      <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-32 h-32 md:w-40 md:h-40">
+        {/* Placeholder for Icon or Image */}
+        <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center shadow-lg">
+            <img src="/images/medic.png" alt="Doctor Icon" className="w-full h-full rounded-full object-cover" />
         </div>
       </div>
+      <img
+        src="/images/ultrason2.jpg"
+        alt="ultrason"
+        className="w-full md:w-3/4 rounded-lg "
+      />
+    </div>
+  </div>
+</section>
 
-              <div className="flex bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 duration-300">
-                <div className="w-1/3 h-full">
-                  <Image src="/carousel7.jpeg" height={300} width={400} alt="Cardiologia" className="w-full h-full object-cover rounded-l-lg" />
-                </div>
-                <div className="w-2/3 p-6 bg-gray-100 flex flex-col justify-center">
-                  <h3 className="font-bold text-lg md:text-xl mb-4 text-blue-800">Exames</h3>
-                  <ul className="list-disc ml-5 space-y-2">
-                    {['Endoscopia', 'Colonoscopia', 'Eletrocardiograma', 'Eletroencefalograma', 'Colposcopia'].map((item, index) => (
-                      <li key={index}>
-                        <Link
-                          href={`https://api.whatsapp.com/send?phone=556292693610&text=Olá! Quero agendar ${item}`}
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:underline"
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+<section className="py-16 bg-[#fff6f1] relative overflow-hidden z-">
+  {/* Background Image with Reduced Opacity, Centering, and Slight Right Shift */}
+  <div 
+    className="absolute inset-0 z-0 bg-[url('/images/fundo.png')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none" 
+    style={{ backgroundSize: 'contain', backgroundPosition: '82% center' }}
+  ></div>
+
+  {/* Foreground Content */}
+  <div className="container relative z-10 mx-auto px-4 text-center md:text-left md:flex md:items-center md:flex-row-reverse">
+    {/* Right Text Content */}
+    <div className="md:w-1/2">
+      <h3 className="text-3xl md:text-5xl font-bold text-gray-800 leading-tight">
+        Somos o local que você buscava para <span className="text-red-600">cuidar da sua saúde</span> sempre que precisar!
+      </h3>
+    </div>
+
+    {/* Left Image Placeholder with Fixed Size and Margin */}
+    <div className="md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 md:mr-12 flex-shrink-0">
+      <img 
+        src="/carousel2.jpeg" 
+        alt="Your Image" 
+        className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-3xl shadow-lg object-cover" 
+      />
+    </div>
+  </div>
+</section>
+
+
+
+
+
+        
       </main>
 
       {/* Footer */}
@@ -375,3 +420,5 @@ export default function Home() {
     </div>
   );
 }
+
+

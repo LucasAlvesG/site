@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 
+
 function NextArrow(props) {
   const { onClick, style } = props;
   return (
@@ -130,7 +131,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-gradient-to-b from-white to-gray-100 text-gray-900">
       {/* Header fixo */}
-      <header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-10">
+      <header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-50">
   <div className="container mx-auto flex items-center justify-between">
     {/* Logo Button */}
     <button
@@ -146,9 +147,10 @@ export default function Home() {
     </button>
     
     {/* Clinic Name with margin-left: auto to move it to the right */}
-    <h1 className="text-4xl md:text-3xl font-playfair font-bold bg-gradient-to-r from-[#82d3f9] to-blue-800 bg-clip-text text-transparent mr-auto">
-      Clínica Médica Diagnóstico
-    </h1>
+    <h1 className="text-4xl md:text-3xl font-playfair font-bold text-blue-800 mr-auto">
+  Clínica Médica Diagnóstico
+</h1>
+
     
     {/* WhatsApp Link */}
     <Link
@@ -250,7 +252,7 @@ export default function Home() {
         {/* slider de servicos realizado pela cmd contendo setas para direita e esquerda */}
        <section id="servicos" className="py-16 bg-blue-900 text-gray-900">
   <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center mb-12 text-gray-100">
-    Exames Realizados
+    Serviços Realizados
   </h2>
   <div className="w-3/4 m-auto">
     <div className="mt-20">
@@ -350,7 +352,7 @@ export default function Home() {
   </div>
 </section>
 
-<section className="py-16 bg-[#fff6f1] relative overflow-hidden z-">
+<section className="py-16 bg-[#fff6f1] relative overflow-hidden z-0">
   {/* Background Image with Reduced Opacity, Centering, and Slight Right Shift */}
   <div 
     className="absolute inset-0 z-0 bg-[url('/images/fundo.png')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none" 

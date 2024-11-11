@@ -9,7 +9,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 
-
 function NextArrow(props) {
   const { onClick, style } = props;
   return (
@@ -59,9 +58,9 @@ const services = [
     whatsapp: '+5562992456916', // Número de WhatsApp específico para este serviço
   },
   {
-    name: 'Consultas',
+    name: 'Consultas Medicas',
     review: 'Serviços de diagnóstico com equipamentos modernos.',
-    img: '/images/consulta.jpg',
+    img: '/images/consulta10.jpg',
     whatsapp: '+5562993546233', // Número de WhatsApp específico para este serviço
   },
   {
@@ -131,7 +130,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-gradient-to-b from-white to-gray-100 text-gray-900">
       {/* Header fixo */}
-      <header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-50">
+      <header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-50 hidden md:block">
   <div className="container mx-auto flex items-center justify-between">
     {/* Logo Button */}
     <button
@@ -165,6 +164,33 @@ export default function Home() {
   </div>
 </header>
 
+{/* header apenas para telefone */}
+<header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-50 block md:hidden">
+  <div className="container mx-auto flex items-center justify-between">
+    {/* Logo Button */}
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="transition-transform hover:scale-110"
+    >
+      <Image
+        src="/logo.png"
+        height={40}
+        width={80}
+        alt="CMD"
+      />
+    </button>
+    {/* WhatsApp Link */}
+    <Link
+      href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Vim pelo site e gostaria de agendar um exame ou consulta."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-10 py-2 rounded-full font-medium text-sm md:text-base hover:bg-yellow-700 transition ml-4"
+    >
+      WhatsApp
+      <FaWhatsapp className="ml-2 text-xl" />
+    </Link>
+  </div>
+</header>
 
 
 
@@ -209,50 +235,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contagem Regressiva */}
-        <section className="bg-blue-900 text-white py-12">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              { number: "28+", label: "Anos de Experiência" },
-              { number: "20+", label: "Especialidades Médicas" },
-              { number: "2000+", label: "Atendimetos Mensais" },
-            ].map((item, index) => (
-              <div key={index} className="p-6">
-                <h3 className="text-4xl font-bold mb-2">{item.number}</h3>
-                <p className="text-lg">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Depoimentos */}
-                <section className="bg-gray-50 py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-playfair font-bold mb-12 text-blue-800">Depoimentos de Clientes</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: "Romischinay", feedback: "Fomos bem atendido! Profissionais muito educados carismáticos, gostei muito do atendimento, pôr isso eu dou 5 estrelas, parabéns há equipe do CMD vcs estão de parabéns 👏 vcs são nota 1000" },
-                { name: "Azenate", feedback: "Sou cliente desde 2011, sempre fui bem atendida , gosto muito de realizar meus exames sempre na CMD." },
-                { name: "Joice", feedback: "Preço justo e ótimo atendimento. Minha clínica preferida em Goiânia." },
-              ].map((testimonial, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <div className="flex justify-center mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="text-yellow-500 fill-current w-8 h-8" />
-                    ))}
-                  </div>
-                  <p className="italic">&quot;{testimonial.feedback}&quot;</p>
-                  <p className="mt-4 font-semibold">{testimonial.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* slider de servicos realizado pela cmd contendo setas para direita e esquerda */}
-       <section id="servicos" className="py-16 bg-blue-900 text-gray-900">
+{/* slider de servicos realizado pela cmd contendo setas para direita e esquerda */}
+        {/* Section para desktops e tablets */}
+        <section id="servicos" className="py-16 bg-blue-900 text-gray-900 hidden md:block">
   <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center mb-12 text-gray-100">
-    Serviços Realizados
+    Exames Realizados
   </h2>
   <div className="w-3/4 m-auto">
     <div className="mt-20">
@@ -262,39 +249,31 @@ export default function Home() {
             key={index}
             className="bg-[#ebf8fa] h-[450px] text-black rounded-xl shadow-lg overflow-hidden border border-gray-400 hover:border-gray-600 transition-colors duration-300"
           >
-            {/* Imagem menor com bordas arredondadas no topo */}
             <div className="h-48 mx-4 mt-4 rounded-t-xl overflow-hidden">
               <img src={d.img} alt={d.name} className="object-cover w-full h-full rounded-xl" />
             </div>
-            
-            {/* Conteúdo do Card com divisão para texto e botões */}
+
             <div className="flex flex-col justify-between h-[250px] p-6 text-center">
-              {/* Seção de Texto */}
               <div>
                 <p className="text-xl font-semibold text-blue-800">{d.name}</p>
-                
-                {/* Text with limited lines for mobile */}
                 <p className="text-gray-700 overflow-hidden text-ellipsis max-h-16 sm:max-h-full line-clamp-2 sm:line-clamp-none">
                   {d.review}
                 </p>
               </div>
-              
-              {/* Seção dos Botões */}
+
               <div className="flex flex-col items-center gap-4 mt-4">
-                 {/* Link para WhatsApp com número específico */}
-                 <a href={`https://wa.me/${d.whatsapp}?text=Olá! Gostaria de mais informações sobre ${d.name}`} target="_blank" rel="noopener noreferrer" className="w-3/5">
+                <a href={`https://wa.me/${d.whatsapp}?text=Olá! Gostaria de mais informações sobre ${d.name}`} target="_blank" rel="noopener noreferrer" className="w-3/5">
                   <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-green-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                     Mensagem
                     <FaWhatsapp className="ml-2 text-xl" />
                   </button>
                 </a>
-                {/* Botão de Ligação com link para o número de telefone */}
-                <a href="tel:+556232417374" className="w-3/5">
-                  <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-blue-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                    Ligação
-                    <FaPhoneAlt className="ml-2 text-xl" />
-                  </button>
-                </a>
+
+                {/* Botão para abrir o modal */}
+                <label htmlFor="modal-toggle" className="w-3/5 cursor-pointer text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-blue-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                  Ligação
+                  <FaPhoneAlt className="ml-2 text-xl" />
+                </label>
               </div>
             </div>
           </div>
@@ -302,7 +281,87 @@ export default function Home() {
       </Slider>
     </div>
   </div>
+
+  {/* Checkbox para controlar o modal */}
+  {/* Checkbox para controlar o modal */}
+<input type="checkbox" id="modal-toggle" className="hidden" />
+
+{/* Modal CSS */}
+<label htmlFor="modal-toggle" className="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div className="bg-white p-8 rounded-lg shadow-lg text-center w-3/4 md:w-1/4" onClick={(e) => e.stopPropagation()}>
+    <p className="text-lg font-semibold text-blue-800">Número para Contato</p>
+    <p className="text-2xl font-bold mt-4">+55 62 3241-7374</p>
+    
+    {/* Botão para fechar o modal */}
+    <label htmlFor="modal-toggle" className="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition cursor-pointer">
+      Fechar
+    </label>
+  </div>
+</label>
+
 </section>
+
+{/* Section para dispositivos móveis */}
+<section id="servicos" className="py-16 bg-blue-900 text-gray-900 block md:hidden">
+  <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center mb-12 text-gray-100">
+    Serviços Realizados
+  </h2>
+  <div className="w-full lg:w-11/12 xl:w-3/4 mx-auto bg-[#ebf8fa] rounded-xl overflow-hidden">
+    <div className="grid grid-cols-2 grid-rows-2 gap-0">
+      {services.map((d, index) => (
+        <div
+          key={index}
+          className="h-[450px] text-black flex flex-col justify-between p-4"
+        >
+          {/* Imagem no topo */}
+          <div className="h-48 w-full overflow-hidden flex justify-center items-center" loading="lazy">
+    <img
+      src={d.img}
+      alt={d.name}
+      className="object-cover w-full h-full rounded-lg"
+      style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+    />
+  </div>
+
+          
+          {/* Conteúdo do Card com texto e botões */}
+          <div className="text-center">
+          <p className="text-xl font-semibold text-blue-800 text-center">{d.name}</p>
+<p className="text-gray-700 h-24 flex items-center justify-center text-center overflow-y-auto">
+  {d.review}
+</p>
+
+            
+            {/* Botões */}
+            <div className="flex flex-col items-center gap-2 mt-4">
+               <a href={`https://wa.me/${d.whatsapp}?text=Olá! Gostaria de mais informações sobre ${d.name}`} target="_blank" rel="noopener noreferrer" className="w-full">
+                <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-green-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                  Mensagem
+                  <FaWhatsapp className="ml-2 text-xl" />
+                </button>
+              </a>
+              <a href="tel:+556232417374" className="w-full">
+                <button className="w-full text-white inline-flex items-center justify-center font-medium py-3 rounded-full shadow-lg bg-gradient-to-r from-blue-400 to-green-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                  Ligação
+                  <FaPhoneAlt className="ml-2 text-xl" />
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+        
+
+        
+
+        
+
+
+
+
 
 <section className="py-16 bg-[#fff6f1] relative overflow-hidden">
   <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-8 px-4">
@@ -339,9 +398,7 @@ export default function Home() {
     <div className="md:w-1/2 relative flex justify-center">
       <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-32 h-32 md:w-40 md:h-40">
         {/* Placeholder for Icon or Image */}
-        <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center shadow-lg">
-            <img src="/images/medic.png" alt="Doctor Icon" className="w-full h-full rounded-full object-cover" />
-        </div>
+        
       </div>
       <img
         src="/images/ultrason2.jpg"
@@ -378,9 +435,47 @@ export default function Home() {
     </div>
   </div>
 </section>
+{/* Contagem Regressiva */}
+<section className="bg-blue-900 text-white py-12">
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {[
+              { number: "28+", label: "Anos de Experiência" },
+              { number: "20+", label: "Especialidades Médicas" },
+              { number: "2000+", label: "Atendimetos Mensais" },
+            ].map((item, index) => (
+              <div key={index} className="p-6">
+                <h3 className="text-4xl font-bold mb-2">{item.number}</h3>
+                <p className="text-lg">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
+{/* Depoimentos */}
+<section className="bg-gray-100 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-playfair font-bold mb-12 text-blue-800">Depoimentos de Clientes</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { name: "Romischinay", feedback: "Fomos bem atendido! Profissionais muito educados carismáticos, gostei muito do atendimento, pôr isso eu dou 5 estrelas, parabéns há equipe do CMD vcs estão de parabéns 👏 vcs são nota 1000" },
+                { name: "Azenate", feedback: "Sou cliente desde 2011, sempre fui bem atendida , gosto muito de realizar meus exames sempre na CMD." },
+                { name: "Joice", feedback: "Preço justo e ótimo atendimento. Minha clínica preferida em Goiânia." },
+              ].map((testimonial, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <div className="flex justify-center mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="text-yellow-500 fill-current w-8 h-8" />
+                    ))}
+                  </div>
+                  <p className="italic">&quot;{testimonial.feedback}&quot;</p>
+                  <p className="mt-4 font-semibold">{testimonial.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-
+        
 
 
         
@@ -409,7 +504,7 @@ export default function Home() {
               (62) 99354-6233 
             </Link>
             <div className="flex space-x-4">
-              <Link href="https://www.facebook.com/Clínica-Cmd" aria-label="Facebook">
+              <Link href="https://web.facebook.com/clinicamedicadiagnostico/" aria-label="Facebook">
                 <Facebook className="w-6 h-6 text-gray-300 hover:text-blue-500 transition-all" />
               </Link>
               <Link href="https://www.instagram.com/cmdgoiania/" aria-label="Instagram">

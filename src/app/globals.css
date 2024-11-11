@@ -64,10 +64,25 @@ body {
 
 
 
+@media (max-width: 768px) {
+  /* Desativar animações ou reduzir intensidade */
+}
 
 
 
 
+/* Modal visível quando o checkbox está marcado */
+#modal-toggle:checked ~ .modal {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Transição para suavizar a exibição do modal */
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
 
 
 

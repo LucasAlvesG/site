@@ -130,9 +130,10 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-gradient-to-b from-white to-gray-100 text-gray-900">
       {/* Header fixo */}
-      <header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-50 hidden md:block">
+{/* Header para Desktop */}
+<header className="bg-gradient-to-r from-gray-500 via-gray-400 to-gray-500 p-2 shadow-lg fixed w-full z-50 hidden md:block metallic-header">
   <div className="container mx-auto flex items-center justify-between">
-    {/* Logo Button */}
+    {/* Botão do Logo */}
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className="transition-transform hover:scale-110"
@@ -144,30 +145,28 @@ export default function Home() {
         alt="CMD"
       />
     </button>
-    
-    {/* Clinic Name with margin-left: auto to move it to the right */}
-    <h1 className="text-4xl md:text-3xl font-playfair font-bold text-blue-800 mr-auto">
-  Clínica Médica Diagnóstico
-</h1>
 
-    
-    {/* WhatsApp Link */}
-    <Link
-      href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Vim pelo site e gostaria de agendar um exame ou consulta."
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-10 py-2 rounded-full font-medium text-sm md:text-base hover:bg-yellow-700 transition ml-4"
-    >
-      WhatsApp
-      <FaWhatsapp className="ml-2 text-xl" />
-    </Link>
+    {/* Nome da Clínica centralizado e alinhado à direita */}
+    <h1 className="text-4xl md:text-3xl font-playfair font-bold text-blue-800 mr-auto">
+      Clínica Médica Diagnóstico
+    </h1>
   </div>
+
+  {/* Estilos adicionais para efeito metálico */}
+  <style jsx>{`
+    .metallic-header-mobile {
+      background: linear-gradient(60deg, #808080, #a0a0a0, #808080);
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  `}</style>
 </header>
 
-{/* header apenas para telefone */}
-<header className="bg-gradient-to-b from-[#82d3f9] to-gray-100 p-2 shadow-lg fixed w-full z-50 block md:hidden">
-  <div className="container mx-auto flex items-center justify-between">
-    {/* Logo Button */}
+{/* Versão do Header para Celular */}
+<header className="bg-[#6b6b6b] text-white p-2 shadow-lg fixed w-full z-50 block md:hidden metallic-header-mobile">
+  <div className="container mx-auto flex items-center justify-center">
+    {/* Botão do Logo */}
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className="transition-transform hover:scale-110"
@@ -175,21 +174,21 @@ export default function Home() {
       <Image
         src="/logo.png"
         height={40}
-        width={80}
+        width={95}
         alt="CMD"
       />
     </button>
-    {/* WhatsApp Link */}
-    <Link
-      href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Vim pelo site e gostaria de agendar um exame ou consulta."
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-10 py-2 rounded-full font-medium text-sm md:text-base hover:bg-yellow-700 transition ml-4"
-    >
-      WhatsApp
-      <FaWhatsapp className="ml-2 text-xl" />
-    </Link>
   </div>
+
+  {/* Estilos adicionais para efeito metálico no celular */}
+  <style jsx>{`
+    .metallic-header-mobile {
+      background: linear-gradient(60deg, #808080, #a0a0a0, #808080);
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  `}</style>
 </header>
 
 
@@ -207,12 +206,7 @@ export default function Home() {
                 Com mais de <span className="font-semibold text-yellow-600">28 anos de mercado</span>, a Clínica CMD possui um
                 centro médico completo para atender e cuidar de você e sua família.
               </p>
-              <Link
-                href="#servicos"
-                className="text-white inline-flex items-center justify-center font-medium py-3 px-6 md:px-8 rounded-full shadow-lg bg-gradient-to-r from-yellow-400 to-yellow-600 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-              >
-                MARQUE UM EXAME
-              </Link>
+            
             </div>
 
             {/* Carousel */}
@@ -381,15 +375,7 @@ export default function Home() {
       
       
       
-      <a
-  href="https://api.whatsapp.com/send?phone=+5562993546233&text=Olá! Gostaria de agendar um exame."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-16 py-3 rounded-full font-medium text-base md:text-lg hover:bg-yellow-700 transition mt-6"
->
-  MARQUE VIA WHATSAPP
-  <FaWhatsapp className="ml-2 text-2xl" />
-</a>
+      
 
 
     </div>
@@ -435,21 +421,38 @@ export default function Home() {
     </div>
   </div>
 </section>
-{/* Contagem Regressiva */}
-<section className="bg-blue-900 text-white py-12">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              { number: "28+", label: "Anos de Experiência" },
-              { number: "20+", label: "Especialidades Médicas" },
-              { number: "2000+", label: "Atendimetos Mensais" },
-            ].map((item, index) => (
-              <div key={index} className="p-6">
-                <h3 className="text-4xl font-bold mb-2">{item.number}</h3>
-                <p className="text-lg">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+{/* Versão para Desktop e Tablet */}
+<section className="bg-blue-900 text-white py-12 hidden md:block">
+  <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    {[
+      { number: "28+", label: "Anos de Experiência" },
+      { number: "20+", label: "Especialidades Médicas" },
+      { number: "2000+", label: "Atendimentos Mensais" },
+    ].map((item, index) => (
+      <div key={index} className="p-8">
+        <h3 className="text-4xl font-bold mb-2">{item.number}</h3>
+        <p className="text-lg">{item.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* Versão para Celulares */}
+<section className="bg-blue-900 text-white py-6 block md:hidden">
+  <div className="container mx-auto px-4 grid grid-cols-1 gap-6 text-center">
+    {[
+      { number: "28+", label: "Anos de Experiência" },
+      { number: "20+", label: "Especialidades Médicas" },
+      { number: "2000+", label: "Atendimentos Mensais" },
+    ].map((item, index) => (
+      <div key={index} className="p-4">
+        <h3 className="text-2xl font-bold mb-1">{item.number}</h3>
+        <p className="text-base">{item.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
 {/* Depoimentos */}
 <section className="bg-gray-100 py-16">

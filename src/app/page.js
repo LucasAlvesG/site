@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 // const Services = dynamic(() => import("../app/components/Services"));
 // const AboutClinic = dynamic(() => import("../app/components/AboutClinic"));
 // const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"));
-// import { EmblaCarousel } from '../app/components/EmblaCarousel';
+import { EmblaCarousel } from '../app/components/EmblaCarousel';
 
 
 

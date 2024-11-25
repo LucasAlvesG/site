@@ -1,6 +1,7 @@
 // components/Services.js
 import React from "react";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+  
 
 const Services = ({ services }) => {
   return (

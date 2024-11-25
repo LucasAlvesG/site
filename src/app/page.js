@@ -10,10 +10,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 import dynamic from 'next/dynamic';
 
 
-const Services = dynamic(() => import("../app/components/Services"));
-const AboutClinic = dynamic(() => import("../app/components/AboutClinic"));
-const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"));
-import { EmblaCarousel } from '../app/components/EmblaCarousel';
+// const Services = dynamic(() => import("../app/components/Services"));
+// const AboutClinic = dynamic(() => import("../app/components/AboutClinic"));
+// const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"));
+// import { EmblaCarousel } from '../app/components/EmblaCarousel';
 
 
 
@@ -174,139 +174,12 @@ export default function Home() {
           </div>
         </section>
         {/* Serviços - Desktop */}
-                
-        {/* Lazy loading com Suspense */}
-        <Suspense fallback={<div>Loading Services...</div>}>
-          <Services services={services} settings={settings} />
-        </Suspense>
-      
-
-    
-
-        <Suspense fallback={<div>Loading About Clinic...</div>}>
-          <AboutClinic />
-        </Suspense>
-      
-        
-        {/* Outra Seção */}
-        <section className="py-16 bg-[#f4f4f4] relative overflow-hidden z-0">
-          {/* Imagem de Fundo */}
-          <div
-            className="absolute inset-0 z-0 bg-[url('/images/fundo.webp')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none"
-            style={{ backgroundSize: "contain", backgroundPosition: "82% center" }}
-          ></div>
-          {/* Conteúdo */}
-          <div className="container relative z-10 mx-auto px-4 text-center md:text-left md:flex md:items-center md:flex-row-reverse">
-            {/* Texto */}
-            <div className="md:w-1/2">
-              <h3 className="text-3xl md:text-5xl font-bold text-[#1b4f72] leading-tight">
-                Somos o local que você buscava para{" "}
-                <span className="text-[#ff4d4d]">cuidar da sua saúde</span>{" "}
-                sempre que precisar!
-              </h3>
-            </div>
-            {/* Imagem */}
-            <div className="md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 md:mr-12 flex-shrink-0">
-            <Image
-  src="/carousel2.webp"
-  alt="Clínica CMD"
-  width={600}
-  height={600}
-  className="rounded-3xl shadow-lg object-cover"
-/>
-
-            </div>
-          </div>  
-        </section>
-        {/* Estatísticas */}
-        <section className="bg-gradient-to-r from-[#1b4f72] to-[#82D3F9] text-white py-12 hidden md:block">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              { number: "28+", label: "Anos de Experiência" },
-              { number: "20+", label: "Especialidades Médicas" },
-              { number: "2000+", label: "Atendimentos Mensais" },
-            ].map((item, index) => (
-              <div key={index} className="p-8">
-                <h3 className="text-4xl font-bold mb-2">{item.number}</h3>
-                <p className="text-lg">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-        {/* Estatísticas - Mobile */}
-        <section className="bg-gradient-to-r from-[#1b4f72] to-[#82D3F9] text-white py-6 block md:hidden">
-          <div className="container mx-auto px-4 grid grid-cols-1 gap-6 text-center">
-            {[
-              { number: "28+", label: "Anos de Experiência" },
-              { number: "20+", label: "Especialidades Médicas" },
-              { number: "2000+", label: "Atendimentos Mensais" },
-            ].map((item, index) => (
-              <div key={index} className="p-4">
-                <h3 className="text-2xl font-bold mb-1">{item.number}</h3>
-                <p className="text-base">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-        {/* Depoimentos */}
-        <section className="bg-[#f4f4f4] py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-playfair font-bold mb-12 text-[#1b4f72]">
-              Depoimentos de Clientes
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Romischinay",
-                  feedback:
-                    "Fomos bem atendido! Profissionais muito educados carismáticos, gostei muito do atendimento, pôr isso eu dou 5 estrelas, parabéns há equipe do CMD vcs estão de parabéns 👏 vcs são nota 1000",
-                },
-                {
-                  name: "Azenate",
-                  feedback:
-                    "Sou cliente desde 2011, sempre fui bem atendida , gosto muito de realizar meus exames sempre na CMD.",
-                },
-                {
-                  name: "Joice",
-                  feedback:
-                    "Preço justo e ótimo atendimento. Minha clínica preferida em Goiânia.",
-                },
-              ].map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                >
-                  <div className="flex justify-center mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="text-[#ff4d4d] fill-current w-8 h-8" />
-                    ))}
-                  </div>
-                  <p className="italic text-[#333333]">
-                    &quot;{testimonial.feedback}&quot;
-                  </p>
-                  <p className="mt-4 font-semibold text-[#1b4f72]">
-                    {testimonial.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-       
-       
-        {/* Outro conteúdo */}
-        <div>
-          <EmpresasCMD />
-        </div>
+         
 
         
       </main>
 
-      {/* Footer */}
-      <div  className="bg-[#f4f4f4]">
-      {/* Outros componentes aqui */}
-      <Footer />
-    </div>
+      
     </div>
   );
 } 

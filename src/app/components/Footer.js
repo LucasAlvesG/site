@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Primeiro Container de Logo e Texto */}
         <div className="mb-4 md:mb-0 flex flex-col items-center md:items-start space-y-2">
           <div className="flex justify-center space-x-4">
-            {/* <Image
+            <Image
               src="/logo.webp"
               height={50}
               width={150}
@@ -17,12 +17,12 @@ export default function Footer() {
               className="mb-2"
             />
             <Image
-              src="/logo001.png"
+              src="/logo001.webp"
               height={50}
               width={120}
               alt="Logo Alternativa"
               className="mb-2 object-contain"  
-            /> */}
+            />
           </div>
           <p className="text-sm">
             CMD - Há 28 anos cuidando com dedicação e excelência da saúde do povo goiano.

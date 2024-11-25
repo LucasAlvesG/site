@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+/* Se for em globals.css ou qualquer outro arquivo CSS global */
+.clip-container {
+  clip-path: inset(0 round 20px);
+}
+
+.slick-slide > div{
+  margin: 0 10px;
+}
+
+/* Centraliza e ajusta o espaçamento dos dots */
+.slick-dots {
+  bottom: -20px; /* Ajusta a posição vertical dos dots */
+  text-align: center;
+}
+
+/* Estiliza os dots inativos para serem menores e mais discretos */
+.slick-dots li button:before {
+  font-size: 8px; /* Tamanho menor para os dots inativos */
+  color: #8ca2f2; /* Cor mais clara para os dots inativos */
+  opacity: 0.7;
+  transition: all 0.3s ease; /* Anima a transição de tamanho e cor */
+}
+
+/* Estiliza o dot ativo para ser maior e em destaque */
+.slick-dots li.slick-active button:before {
+  font-size: 12px; /* Tamanho maior para o dot ativo */
+  color: #3366ff; /* Cor mais forte para o dot ativo */
+  opacity: 1;
+}
+
+
+
+.embla {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  transition: transform 0.05s ease-in-out;
+}
+
+.embla__slide {
+  flex: 0 0 100%; /* Cada slide ocupa 100% da largura */
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -140,7 +140,7 @@ export default function Home() {
     >
       <Image
         src="/logo.png"
-        height={40}
+        height={45}
         width={80}
         alt="CMD"
       />

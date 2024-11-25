@@ -10,10 +10,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 import dynamic from 'next/dynamic';
 
 
-const Services = dynamic(() => import("../app/components/Services"), { ssr: false });
-const AboutClinic = dynamic(() => import("../app/components/AboutClinic"), { ssr: false });
-const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"), { ssr: false });
-import { EmblaCarousel } from '../app/components/EmblaCarousel';
+// const Services = dynamic(() => import("../app/components/Services"), { ssr: false });
+// const AboutClinic = dynamic(() => import("../app/components/AboutClinic"), { ssr: false });
+// const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"), { ssr: false });
+// import { EmblaCarousel } from '../app/components/EmblaCarousel';
 
 
 
@@ -136,7 +136,51 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen font-sans bg-gradient-to-b from-[#f4f4f4] to-white text-[#333333]">
-     ola
+     
+
+
+      {/* Header */}
+      <Header />
+      {/* Main Content */}
+      <main className="mt-20 flex-grow pt-3">
+        {/* Hero Section */}
+        <section className="bg-[#f4f4f4] p-6 md:p-8 flex flex-col md:flex-row items-center">
+          <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-4">
+            <div className="md:w-1/2 mb-4 md:mb-0">
+              <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-2 text-[#1b4f72]">
+                O Melhor
+              </h1>
+              <h1 className="text-4xl md:text-6xl font-playfair font-bold mb-4 text-[#1b4f72]">
+                para sua saúde
+              </h1>
+              <h2 className="text-lg md:text-2xl font-semibold text-[#333333] mb-2">
+                Clínica Médica Diagnóstico
+              </h2>
+              <p className="mb-6 text-base md:text-lg leading-relaxed tracking-wide text-justify">
+                Com mais de{" "}
+                <span className="font-semibold text-[#ff4d4d]">
+                  28 anos de mercado
+                </span>
+                , a Clínica CMD possui um centro médico completo para atender e
+                cuidar de você e sua família.
+              </p>
+            </div>
+            {/* Carousel */}
+            <div className="md:w-1/2 w-full">
+            ola meu casca de bala
+            </div>  
+          </div>
+        </section>
+        {/* Serviços - Desktop */}
+        
+        
+      </main>
+
+      {/* Footer */}
+      <div  className="bg-[#f4f4f4]">
+      {/* Outros componentes aqui */}
+      <Footer />
+    </div>
     </div>
   );
 } 

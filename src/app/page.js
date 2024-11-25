@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'; 
-import Header from "../app/components/header"; // Mantém a importação normal
+// import Header from "../app/components/header"; // Mantém a importação normal
 import Footer from '../app/components/Footer'; // Mantém a importação normal
 import React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -140,7 +140,7 @@ export default function Home() {
 
 
       {/* Header */}
-      <Header />
+      {/* <Header /> */}
       {/* Main Content */}
       <main className="mt-20 flex-grow pt-3">
         {/* Hero Section */}

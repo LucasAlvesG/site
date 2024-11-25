@@ -9,15 +9,15 @@ export default function Footer() {
         {/* Primeiro Container de Logo e Texto */}
         <div className="mb-4 md:mb-0 flex flex-col items-center md:items-start space-y-2">
           <div className="flex justify-center space-x-4">
-            <Image
-              src="/carousel1.webp"
+            {/* <Image
+              src="/logo.webp"
               height={50}
               width={150}
               alt="CMD Goiânia"
               className="mb-2"
-            />
+            /> */}
             <Image
-              src="/carousel7.webp"
+              src="/logo001.png"
               height={50}
               width={120}
               alt="Logo Alternativa"

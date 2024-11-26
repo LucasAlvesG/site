@@ -5,7 +5,7 @@ const nextConfig = {
 
   // Configuração para imagens no modo estático
   images: {
-    unoptimized: true, 
+    unoptimized: false, 
   },
 
   // Trailing slash para adicionar "/" ao final das URLs estáticas

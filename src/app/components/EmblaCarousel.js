@@ -1,7 +1,6 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import Image from 'next/image';
 
 const images = [
   '/carousel10.jpeg',
@@ -25,19 +24,16 @@ export function EmblaCarousel() {
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-      {images.map((src, index) => (
-  <div key={index} className="embla__slide relative w-full h-48 md:h-[500px]">
-    <Image
-      src={src}
-      alt={`Carousel image ${index + 1}`}
-      fill // Substitui layout="fill"
-      quality={90}
-      style={{ objectFit: 'cover' }}
-      className="rounded-lg shadow-lg"
-    />
-  </div>
-))}
-
+        {images.map((src, index) => (
+          <div key={index} className="embla__slide relative w-full h-48 md:h-[500px]">
+            <img
+              src={src}
+              alt={`Carousel image ${index + 1}`}
+              className="w-full h-full rounded-lg shadow-lg object-cover"
+              loading="lazy" // Lazy loading para melhor desempenho
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

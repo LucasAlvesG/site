@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 const Services = dynamic(() => import("../app/components/Services"), { ssr: false });
 const AboutClinic = dynamic(() => import("../app/components/AboutClinic"), { ssr: false });
 const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"), { ssr: false });
-import { EmblaCarousel } from '../app/components/EmblaCarousel';
+// import { EmblaCarousel } from '../app/components/EmblaCarousel';
 
 
 
@@ -168,7 +168,7 @@ export default function Home() {
             {/* Carousel */}
             <div className="md:w-1/2 w-full">
               <div>
-                <EmblaCarousel />
+                oioi
               </div>
             </div>  
           </div>

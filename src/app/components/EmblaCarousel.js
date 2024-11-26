@@ -4,10 +4,10 @@ import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 
 const images = [
-  '/carousel1.png',
-  '/carousel7.png',
-  '/carousel5.png',
-  '/carousel9.png',
+  '/carousel1.jpeg',
+  '/carousel7.jpeg',
+  '/carousel5.jpeg',
+  '/carousel9.jpeg',
 ];
 
 export function EmblaCarousel() {

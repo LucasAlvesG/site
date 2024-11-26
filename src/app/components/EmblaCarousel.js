@@ -4,7 +4,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 
 const images = [
-  '/carousel1.jpeg',
+  '/carousel3.jpeg',
   '/carousel7.jpeg',
   '/carousel5.jpeg',
   '/carousel9.jpeg',

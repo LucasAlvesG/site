@@ -49,25 +49,25 @@ const services = [
   {
     name: 'Exames de Imagem',
     review: 'Tratamento e cuidado especializado para pacientes oncológicos.',
-    img: '/images/exame.webp',
+    img: '/images/exame.jpg',
     whatsapp: '+5562993546233',
   },
   {
     name: 'Exames Laboratoriais',
     review: 'Cuidado completo para o coração com os melhores especialistas.',
-    img: '/images/exameslaboratoriais.webp',
+    img: '/images/exameslaboratoriais.jpg',
     whatsapp: '+5562992456916',
   },
   {
     name: 'Consultas Médicas',
     review: 'Serviços de diagnóstico com equipamentos modernos.',
-    img: '/images/consulta10.webp',
+    img: '/images/consulta10.jpg',
     whatsapp: '+5562993546233',
   },
   {
     name: 'Partos e Cirurgias Gerais',
     review: 'Cuidado especial para a saúde das crianças.',
-    img: '/images/cirurgia.webp',
+    img: '/images/cirurgia.jpg',
     whatsapp: '+5562994611598',
   },
 ];
@@ -192,7 +192,7 @@ export default function Home() {
         <section className="py-16 bg-[#f4f4f4] relative overflow-hidden z-0">
           {/* Imagem de Fundo */}
           <div
-            className="absolute inset-0 z-0 bg-[url('/images/fundo.webp')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none"
+            className="absolute inset-0 z-0 bg-[url('/images/fundo.png')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none"
             style={{ backgroundSize: "contain", backgroundPosition: "82% center" }}
           ></div>
           {/* Conteúdo */}
@@ -208,7 +208,7 @@ export default function Home() {
             {/* Imagem */}
             <div className="md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 md:mr-12 flex-shrink-0">
             <Image
-  src="/carousel2.webp"
+  src="/carousel2.jpeg"
   alt="Clínica CMD"
   width={600}
   height={600}

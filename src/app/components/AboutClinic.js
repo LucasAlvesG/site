@@ -5,7 +5,7 @@ export default function AboutClinic() {
     <section className="py-16 bg-[#f4f4f4] relative overflow-hidden">
       {/* Imagem de Fundo */}
       <div
-        className="absolute inset-0 z-0 bg-[url('/images/fundo.webp')] bg-no-repeat bg-cover opacity-10 pointer-events-none block md:hidden"
+        className="absolute inset-0 z-0 bg-[url('/images/fundo.png')] bg-no-repeat bg-cover opacity-10 pointer-events-none block md:hidden"
         style={{
           backgroundPosition: "center 120px",
           backgroundSize: "130%",
@@ -38,7 +38,7 @@ export default function AboutClinic() {
         <div className="md:w-1/2 relative flex justify-center">
           <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-32 h-32 md:w-40 md:h-40"></div>
           <Image
-            src="/images/ultrason1.webp"
+            src="/images/ultrason1.png"
             alt="Ultrassom"
             width={600} // Defina uma largura adequada
             height={400} // Defina uma altura adequada

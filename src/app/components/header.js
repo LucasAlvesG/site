@@ -36,7 +36,7 @@ export default function Header() {
           className="transition-transform hover:scale-105"
         >
           <Image
-            src="/logo.webp"
+            src="/logo.png"
             height={isScrolled ? 35 : 45} // A logo fica menor (35px) quando o scroll é maior que 50px
             width={isScrolled ? 75 : 100}  // A logo fica maior (150px) quando no topo
             alt="CMD Logo"

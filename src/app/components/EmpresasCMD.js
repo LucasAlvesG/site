@@ -11,7 +11,7 @@ export default function EmpresasCMD() {
           {/* Card Vivamed */}
           <div className="rounded-lg bg-white text-[#1b4f72] shadow-lg hover:scale-105 transition-transform p-6 flex flex-col items-center min-w-[45%] max-w-[45%] sm:max-w-[300px]">
             <img
-              src="/images/vivamed3.png"
+              src="/images/fundo.png"
               alt="Vivamed"
               className="w-36 h-36 object-contain mb-4"
             />
@@ -45,7 +45,7 @@ export default function EmpresasCMD() {
           {/* Card SAU Benefícios */}
           <div className="rounded-lg bg-white text-[#1b4f72] shadow-lg hover:scale-105 transition-transform p-6 flex flex-col items-center min-w-[45%] max-w-[45%] sm:max-w-[300px]">
             <img
-              src="/images/logo03.png"
+              src="/images/fundo.png"
               alt="SAU Benefícios"
               className="w-36 h-36 object-contain mb-4"
             />

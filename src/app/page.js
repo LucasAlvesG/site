@@ -207,13 +207,13 @@ export default function Home() {
             </div>
             {/* Imagem */}
             <div className="md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 md:mr-12 flex-shrink-0">
-            <Image
+            {/* <Image
   src="/carousel2.jpeg"
   alt="Clínica CMD"
   width={600}
   height={600}
   className="rounded-3xl shadow-lg object-cover"
-/>
+/> */}
 
             </div>
           </div>  

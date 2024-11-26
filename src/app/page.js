@@ -208,7 +208,7 @@ export default function Home() {
             {/* Imagem */}
             <div className="md:w-1/2 flex justify-center md:justify-start mt-6 md:mt-0 md:mr-12 flex-shrink-0">
             <Image
-  src="/carousel2.jpeg"
+  src="/carousel2.png"
   alt="Clínica CMD"
   width={600}
   height={600}

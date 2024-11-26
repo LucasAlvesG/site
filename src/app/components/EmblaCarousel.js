@@ -3,10 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
 const images = [
-  '/carousel10.png',
-  '/carousel11.png',
-  '/carousel12.png',
-  '/carousel13.png',
+  '/carousel1.png',
 ];
 
 export function EmblaCarousel() {

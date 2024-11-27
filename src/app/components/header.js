@@ -34,18 +34,16 @@ export default function Header() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="transition-transform hover:scale-105"
         >
-           <img
-  src="/logo.png"
-  alt="CMD Logo"
-  className="transition-transform duration-300"
-  style={{
-    height: isScrolled ? "45px" : "35px", // Maior quando scrollado
-    width: isScrolled ? "100px" : "75px", // Proporcional
-  }}
-/>
-
-
-
+          <img
+            src="/logo.png"
+            alt="CMD Logo"
+            className="transition-transform duration-300"
+            style={{
+              height: isScrolled ? "70px" : "90px", // Maior quando rolado
+              width: isScrolled ? "70px" : "100px", // Proporcionalmente maior
+              objectFit: "-moz-initial", // Mantém as proporções da imagem
+            }}
+          />
         </button>
       </div>
     </header>

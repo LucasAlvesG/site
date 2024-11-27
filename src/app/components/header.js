@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 
 export default function Header() {
   // Estado para monitorar se o scroll está acima de 50px
@@ -35,13 +34,18 @@ export default function Header() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="transition-transform hover:scale-105"
         >
-          {/* <Image
-            src="/logo.png"
-            height={isScrolled ? 35 : 45} // A logo fica menor (35px) quando o scroll é maior que 50px
-            width={isScrolled ? 75 : 100}  // A logo fica maior (150px) quando no topo
-            alt="CMD Logo"
-            className="transition-transform duration-300"
-          /> */}
+           <img
+  src="/logo.png"
+  alt="CMD Logo"
+  className="transition-transform duration-300"
+  style={{
+    height: isScrolled ? "45px" : "35px", // Maior quando scrollado
+    width: isScrolled ? "100px" : "75px", // Proporcional
+  }}
+/>
+
+
+
         </button>
       </div>
     </header>

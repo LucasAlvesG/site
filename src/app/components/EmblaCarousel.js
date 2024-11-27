@@ -1,39 +1,46 @@
-import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import React from "react";
+import Slider from "react-slick";
+import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const images = [
-  '/carousel1.png',
-  '/carousel7.png',
-  '/carousel9.png',
-];
+const EmblaCarousel = () => {
+  const images = [
+    '/carousel1.png',
+    '/carousel7.png',
+    '/carousel9.png',
+  ];
 
-export function EmblaCarousel() {
-  const autoplayOptions = { delay: 3000 }; // Tempo de espera em milissegundos (3 segundos)
-  const [emblaRef] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'center', // Centraliza o slide atual
-      skipSnaps: true, // Garante que o snap só aconteça nas posições corretas
-      draggable: false,
-    },
-    [Autoplay(autoplayOptions)]
-  );
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    cssEase: "ease-in-out",
+    fade: true,
+    adaptiveHeight: true,
+  };
 
   return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        {images.map((src, index) => (
-          <div key={index} className="embla__slide relative w-full h-48 md:h-[500px]">
-            <img
-              src={src}
-              alt={`Carousel image ${index + 1}`}
-              className="w-full h-full rounded-lg shadow-lg object-cover"
-              loading="lazy" // Lazy loading para melhor desempenho
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <Slider {...settings}>
+      {images.map((src, index) => (
+        <div key={index} className="relative w-full h-48 md:h-[500px]">
+          <Image
+            src={src}
+            alt={`Carousel image ${index + 1}`}
+            layout="fill"
+            quality={90}
+            style={{ objectFit: "cover" }}
+            className="rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
+          />
+        </div>
+      ))}
+    </Slider>
   );
-}
+};
+
+export default EmblaCarousel;

@@ -9,11 +9,14 @@ import React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import dynamic from 'next/dynamic';
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Services = dynamic(() => import("../app/components/Services"), { ssr: false });
 const AboutClinic = dynamic(() => import("../app/components/AboutClinic"), { ssr: false });
 const EmpresasCMD = dynamic(() => import("../app/components/EmpresasCMD"), { ssr: false });
-import { EmblaCarousel } from '../app/components/EmblaCarousel';
+// import { EmblaCarousel } from '../app/components/EmblaCarousel';
 
 
 
@@ -77,6 +80,11 @@ const services = [
 export default function Home() {
   
   
+    const images = [
+      '/carousel1.png',
+      '/carousel7.png',
+      '/carousel9.png',
+    ];
   
   const settings = {
     dots: true,
@@ -168,7 +176,20 @@ export default function Home() {
             {/* Carousel */}
             <div className="md:w-1/2 w-full">
               <div>
-                <EmblaCarousel />
+              <Slider {...settings}>
+      {images.map((src, index) => (
+        <div key={index} className="relative w-full h-48 md:h-[500px]">
+          <Image
+            src={src}
+            alt={`Carousel image ${index + 1}`}
+            layout="fill"
+            quality={90}
+            style={{ objectFit: "cover" }}
+            className="rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
+          />
+        </div>
+      ))}
+    </Slider>
               </div>
             </div>  
           </div>

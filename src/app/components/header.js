@@ -35,13 +35,13 @@ export default function Header() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="transition-transform hover:scale-105"
         >
-          <Image
+          {/* <Image
             src="/logo.png"
             height={isScrolled ? 35 : 45} // A logo fica menor (35px) quando o scroll é maior que 50px
             width={isScrolled ? 75 : 100}  // A logo fica maior (150px) quando no topo
             alt="CMD Logo"
             className="transition-transform duration-300"
-          />
+          /> */}
         </button>
       </div>
     </header>

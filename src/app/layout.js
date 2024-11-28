@@ -5,6 +5,11 @@ import "./globals.css";
 export const metadata = {
   title: 'Clínica CMD',
   description: 'Quais são nossos serviços? Exames como Ultra-sonografia, Raio-x, Tomografia, Consulta, Cardiologia, Mamografia, Outros procedimentos, Todas as especialidades!',
+  icons: {
+    icon: '/favicon.ico', // Caminho para o favicon
+    apple: '/apple-icon.png', // Caminho para o apple icon
+    shortcut: '/favicon.ico', // Atalho (opcional)
+  },
 };
 
 import favicon from '../app/favicon.ico';
@@ -16,7 +21,6 @@ export default function RootLayout({ children }) {
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
-        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>{children}</body>
     </html>

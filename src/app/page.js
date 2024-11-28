@@ -82,6 +82,7 @@ export default function Home() {
   
     const images = [
       '/carousel1.png',
+      '/carousel3.png',
       '/carousel7.png',
       '/carousel9.png',
     ];
@@ -213,7 +214,7 @@ export default function Home() {
         <section className="py-16 bg-[#f4f4f4] relative overflow-hidden z-0">
           {/* Imagem de Fundo */}
           <div
-            className="absolute inset-0 z-0 bg-[url('/images/fundo.png')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none"
+            className="hidden lg:block absolute inset-0 z-0 bg-[url('/images/fundo.png')] bg-no-repeat bg-blend-overlay opacity-10 pointer-events-none"
             style={{ backgroundSize: "contain", backgroundPosition: "82% center" }}
           ></div>
           {/* Conteúdo */}
@@ -223,7 +224,7 @@ export default function Home() {
               <h3 className="text-3xl md:text-5xl font-bold text-[#1b4f72] leading-tight">
                 Somos o local que você buscava para{" "}
                 <span className="text-[#ff4d4d]">cuidar da sua saúde</span>{" "}
-                sempre que precisar!
+                sempre que precisar. Estamos aqui  <span className="text-[#ff4d4d]">para você</span>!
               </h3>
             </div>
             {/* Imagem */}

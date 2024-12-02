@@ -1,6 +1,6 @@
 export default function EmpresasCMD() {
     return (
-      <section className="min-h-screen bg-[#f4f4f4] text-white flex flex-col items-center justify-center px-4 py-8">
+      <section className="bg-[#f4f4f4] text-white flex flex-col items-center justify-center px-4 py-8">
         {/* Título */}
         <h1 className="text-3xl md:text-4xl text-[#1b4f72] font-bold drop-shadow-lg text-center mb-8 break-words">
           Empresas CMD

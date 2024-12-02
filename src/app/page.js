@@ -82,7 +82,7 @@ export default function Home() {
   
     const images = [
       '/carousel1.png',
-      '/carousel3.png',
+      '/carousel4.png',
       '/carousel7.png',
       '/carousel9.png',
     ];
@@ -271,7 +271,7 @@ export default function Home() {
           </div>
         </section>
         {/* Depoimentos */}
-        <section className="bg-[#f4f4f4] py-16">
+        <section className="bg-[#f4f4f4] py-16 ">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-playfair font-bold mb-12 text-[#1b4f72]">
               Depoimentos de Clientes

@@ -81,8 +81,10 @@ export default function Home() {
   
   
     const images = [
-      '/carousel1.png',
-      '/carousel8.png',
+      '/carousel10.jpeg',
+      '/carousel11.jpeg',
+      '/carousel12.jpeg',
+      '/carousel13.jpeg',
       '/carousel7.png',
       '/carousel9.png',
     ];
